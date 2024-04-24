@@ -26,6 +26,11 @@ public class administrativo extends empleado{
 		detalle+=" ,sueldo: "+this.getSueldo();
 		return detalle;
 	}
+	
+	public administrativo() {
+		this(0, "-", "-", "-", 0.0f, 0, 0);
+	}
+	
 	public administrativo(Integer dni, String nombre, String apellido, String email, Float sueldoBase, Integer hsExtra,
 			Integer hsMes) {
 		super(dni, nombre, apellido, email, sueldoBase);
@@ -34,5 +39,3 @@ public class administrativo extends empleado{
 	}
 	
 }
-	
-
