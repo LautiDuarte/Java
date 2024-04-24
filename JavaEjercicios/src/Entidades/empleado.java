@@ -1,6 +1,6 @@
 package Entidades;
 
-public abstract class empleado {
+public class empleado {
 	private Integer dni;
 	private String nombre;
 	private String apellido;
@@ -49,5 +49,3 @@ public abstract class empleado {
 		this.email = email;
 		this.sueldoBase = sueldoBase;
 	}
-	
-}
