@@ -26,6 +26,11 @@ public class vendedor extends empleado{
 		detalle+=" ,sueldo: "+this.getSueldo();
 		return detalle;
 		}
+	
+	public vendedor() {
+		this(0, "-", "-", "-", 0.0f, 0.0f, 0);
+		}
+	
 	public vendedor(Integer dni, String nombre, String apellido, String email, Float sueldoBase, Float porcenComisiones,
 			Integer totalVentas) {
 		super(dni, nombre, apellido, email, sueldoBase);
