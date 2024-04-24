@@ -5,48 +5,29 @@ import Entidades.empleado;
 import Entidades.administrativo;
 import Entidades.vendedor;
 
-public class Ej5 {
-
+public class Ej5a {
+	static Scanner leer = new Scanner(System.in);
 	public static void main(String[] args) {
-		Scanner leer = new Scanner(System.in);
 		int max = 20;
 		empleado[] lista = new empleado[max];
 		for(int i=0;i<max;i++) {
-			System.out.println("¿Desea ingresar un administrativo o un vendedor?: ");
+			System.out.print("¿Desea ingresar un administrativo o un vendedor?: ");
 			String rta=leer.nextLine();
 			if (rta.equalsIgnoreCase("a")){
-				/* System.out.print("Ingrese dni: ");
-				persona.setDni(Integer.parseInt(leer.nextLine()));
-				System.out.print("Ingrese nombre: ");
-				persona.setNombre(leer.nextLine());
-				System.out.print("Ingrese apellido: ");
-				persona.setApellido(leer.nextLine());
-				System.out.print("Ingrese email: ");
-				persona.setEmail(leer.nextLine());
-				System.out.print("Ingrese sueldo base: ");
-				persona.setSueldoBase(Float.parseFloat(leer.nextLine()));
+				lista[i]= new administrativo();
+				cargaDatosComunes(lista[i]);
 				System.out.print("Ingrese horas del mes: ");
-				persona.setHsMes(Integer.parseInt(leer.nextLine()));
+				((administrativo)lista[i]).setHsMes(Integer.parseInt(leer.nextLine()));
 				System.out.print("Ingrese horas extra: ");
-				persona.setHsExtra(Integer.parseInt(leer.nextLine())); 
-			*/
+				((administrativo)lista[i]).setHsExtra(Integer.parseInt(leer.nextLine())); 
 			}
 			else {
-				System.out.print("Ingrese dni: ");
-				Integer dni = Integer.parseInt(leer.nextLine());
-				System.out.print("Ingrese nombre: ");
-				String nombre = leer.nextLine();
-				System.out.print("Ingrese apellido: ");
-				String apellido = leer.nextLine();
-				System.out.print("Ingrese email: ");
-				String email = leer.nextLine();
-				System.out.print("Ingrese sueldo base: ");
-				Float sueldoBase = Float.parseFloat(leer.nextLine());
+				lista[i] = new vendedor();
+				cargaDatosComunes(lista[i]);
 				System.out.print("Ingrese porcentaje de comisiones: ");
-				Float porcenComision = Float.parseFloat(leer.nextLine());
+				((vendedor)lista[i]).setPorcenComisiones(Float.parseFloat(leer.nextLine()));
 				System.out.print("Ingrese total de ventas: ");
-				Integer totalVentas = Integer.parseInt(leer.nextLine());
-				lista[i] = new vendedor(dni,nombre,apellido,email,sueldoBase,porcenComision,totalVentas);
+				((vendedor)lista[i]).setTotalVentas(Integer.parseInt(leer.nextLine()));
 			}
 			System.out.print("¿Continua ingresando?(Y/N): ");
 			String cont=leer.nextLine();
@@ -54,10 +35,24 @@ public class Ej5 {
 				break;
 			}
 		}
-		for (int j=0;j<max;j++) {
-			lista[j].getDetalle();
+		for (empleado empleado : lista) {
+			System.out.println(empleado.getDetalle());
 		}
 	leer.close();
+	}
+	
+	public static void cargaDatosComunes(empleado e) {
+		System.out.print("ingrese dni: ");
+		e.setDni(Integer.parseInt(leer.nextLine()));
+		System.out.print("Ingrese nombre: ");
+		e.setNombre(leer.nextLine());
+		System.out.print("ingrese apellido: ");
+		e.setApellido(leer.nextLine());
+		System.out.print("Ingrese email: ");
+		e.setEmail(leer.nextLine());
+		System.out.print("Ingrese sueldo base: ");
+		e.setSueldoBase(Float.parseFloat(leer.nextLine()));
+		
 	}
 
 }
