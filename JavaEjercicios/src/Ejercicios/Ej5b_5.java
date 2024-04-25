@@ -9,7 +9,7 @@ import Entidades.vendedor;
 public class Ej5b_5 {
 	static Scanner leer = new Scanner(System.in);
 	public static void main(String[] args) {
-		int max = 2;
+		int max = 20;
 		ArrayList<empleado> lista = new ArrayList<>();
 		for(int i=0;i<max;i++) {
 			System.out.print("¿Desea ingresar un administrativo o un vendedor?: ");
