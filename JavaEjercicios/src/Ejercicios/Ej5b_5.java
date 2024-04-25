@@ -11,11 +11,11 @@ public class Ej5b_5 {
 	public static void main(String[] args) {
 		int max = 20;
 		ArrayList<empleado> lista = new ArrayList<>();
-		for(int i=0;i<max;i++) {
+		while(lista.size()<max){
 			System.out.print("¿Desea ingresar un administrativo o un vendedor?: ");
 			String rta=leer.nextLine();
 			if (rta.equalsIgnoreCase("a")){
-				empleado a= new administrativo();
+				administrativo a = new administrativo();
 				cargaDatosComunes(a);
 				System.out.print("Ingrese horas del mes: ");
 				((administrativo)a).setHsMes(Integer.parseInt(leer.nextLine()));
@@ -25,7 +25,7 @@ public class Ej5b_5 {
 				
 			}
 			else {
-				empleado v = new vendedor();
+				vendedor v = new vendedor();
 				cargaDatosComunes(v);
 				System.out.print("Ingrese porcentaje de comisiones: ");
 				((vendedor)v).setPorcenComisiones(Float.parseFloat(leer.nextLine()));
@@ -33,7 +33,7 @@ public class Ej5b_5 {
 				((vendedor)v).setTotalVentas(Integer.parseInt(leer.nextLine()));
 				lista.add(v);
 			}
-			if(i!=max-1) {
+			if(lista.size()!=max) {
 			System.out.print("¿Continua ingresando?(Y/N): ");
 			String cont=leer.nextLine();
 				if (cont.equalsIgnoreCase("n")){
@@ -42,8 +42,8 @@ public class Ej5b_5 {
 			}
 		}
 		System.out.println();
-		for (int j=0;j<lista.size();j++) {
-			System.out.println(lista.get(j).getDetalle());
+		for (empleado unempleado: lista) {
+			System.out.println(unempleado.getDetalle());
 			System.out.println();
 		}
 	leer.close();
